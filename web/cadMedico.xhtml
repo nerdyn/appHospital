@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./modelo.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Codigo " />
+                <p:inputText value="#{bean.med.codfuncionario}" />
+                
+                <p:outputLabel value="Nome: " />
+                <p:inputText value="#{bean.med.nome}" />
+
+                <p:outputLabel value="N° Horas: " />
+                <p:inputText value="#{bean.med.numhorastrab}" />
+                
+                <p:outputLabel value="CRM: " />
+                <p:inputText value="#{bean.med.crm}" />
+
+                <p:outputLabel value="Especialidade: " />
+                <p:selectOneMenu value="#{bean.med.especialidade}">
+                    <f:selectItem itemLabel="Selecione" />
+                    <f:selectItems value="#{bean.titulo}" />
+                    </p:selectOneMenu>
+                
+                <p:commandButton value="Enviar" action="#{bean.calcMed()}" update="@form" />
+                <p:outputLabel value="#{bean.med}" />
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
